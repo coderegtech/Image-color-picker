@@ -59,7 +59,7 @@ export default function Home() {
 
 
   return (
-    <main className="w-full h-screen flex items-center justify-center bg-wall bg-center bg-cover relative ">
+    <main className="w-full h-screen sm:p-5 flex justify-between items-center bg-wall bg-center bg-cover relative ">
 
       <ToastContainer
         position="top-right"
@@ -74,11 +74,11 @@ export default function Home() {
         theme="light"
       />
 
-      <div className="container max-w-[90vw] w-full h-[90dvh] bg-white rounded-xl md:overflow-hidden flex  flex-wrap shadow-2xl overflow-y-auto">
+      <div className="container p-3 md:max-w-[90vw] md:h-[90vh] mx-auto md:p-0 w-full h-full bg-white rounded-xl overflow-hidden flex flex-col sm:flex-row shadow-2xl overflow-y-auto">
 
-        <div className="md:max-w-[400px] w-full h-full  p-5 overflow-y-auto">
+        <div className="sm:max-w-[300px] md:max-w-[400px] w-full h-full p-3 md:p-5 overflow-y-auto">
 
-          <h2 className="font-sans text-white text-xl md:text-3xl font-bold  text-center">IMAGE COLOR PICKER</h2>
+          <h2 className="font-sans text-white text-2xl font-bold  text-center">IMAGE COLOR PICKER</h2>
 
           <div className="pt-5">
             <p className="py-3 text-white text-base">IMAGE URL</p>
@@ -92,31 +92,21 @@ export default function Home() {
 
             <p className="py-3 text-white text-base">UPLOAD FILE</p>
 
-            <div onClick={openImgSelector} className=" w-48 h-32 border-dashed border-2 border-[#f8f8f85d]  rounded-md grid place-items-center cursor-pointer">
+            <div onClick={openImgSelector} className="w-full h-36 md:w-48 md:h-32 border-dashed border-2 border-[#f8f8f85d]  rounded-md grid place-items-center cursor-pointer">
               <span className="">
                 <input ref={imgRef} type="file" hidden accept="image/*" onChange={getImgFile} />
                 <svg width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <g id="Complete">
-
                     <g data-name="add" id="add-2">
-
                       <g>
-
                         <line fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="12" x2="12" y1="19" y2="5" />
-
                         <line fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" x1="5" x2="19" y1="12" y2="12" />
-
                       </g>
-
                     </g>
-
                   </g>
-
                 </svg>
-
               </span>
             </div>
-
           </div>
 
 
@@ -130,7 +120,7 @@ export default function Home() {
           </div>
 
         </div>
-        <div className=" grow md:h-full bg-black/30  p-10 rounded-2xl">
+        <div className="relative w-full h-[50%] sm:h-full bg-black/30 p-5 md:p-10 rounded-2xl">
 
           <div className="w-full h-full relative grid place-items-center ">
             <span className={`${preview ? 'block' : 'hidden'}  absolute -top-3 -right-3  rounded-full bg-black/50 p-1`} onClick={() => {
