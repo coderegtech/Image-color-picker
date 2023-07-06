@@ -59,7 +59,7 @@ export default function Home() {
 
 
   return (
-    <main className="w-full h-screen flex items-center justify-center bg-wall bg-center bg-cover relative overflow-hidden">
+    <main className="w-full h-screen flex items-center justify-center bg-wall bg-center bg-cover relative ">
 
       <ToastContainer
         position="top-right"
@@ -74,11 +74,11 @@ export default function Home() {
         theme="light"
       />
 
-      <div className="container max-w-[90vw] w-full h-[90vh] bg-white rounded-xl overflow-hidden flex shadow-2xl ">
+      <div className="container max-w-[90vw] w-full h-[90dvh] bg-white rounded-xl md:overflow-hidden flex  flex-wrap shadow-2xl overflow-y-auto">
 
-        <div className="max-w-[400px] w-full h-full  p-5 overflow-y-auto">
+        <div className="md:max-w-[400px] w-full h-full  p-5 overflow-y-auto">
 
-          <h2 className="font-sans text-white text-3xl font-bold  text-center">IMAGE COLOR PICKER</h2>
+          <h2 className="font-sans text-white text-xl md:text-3xl font-bold  text-center">IMAGE COLOR PICKER</h2>
 
           <div className="pt-5">
             <p className="py-3 text-white text-base">IMAGE URL</p>
@@ -86,7 +86,7 @@ export default function Home() {
               <input
                 onChange={(e) => setImgUrl(e.target.value)}
                 value={imgUrl}
-                className="px-3 py-2 bg-transparent border border-white/30 rounded-md focus:outline-none text-white" type="text" placeholder="Enter Image Url..." />
+                className="w-full px-3 py-2 bg-transparent border border-white/30 rounded-md focus:outline-none text-white" type="text" placeholder="Enter Image Url..." />
               <button onClick={previewImg} className="rounded-md px-3 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white" type="button">SUBMIT</button>
             </div>
 
@@ -130,7 +130,7 @@ export default function Home() {
           </div>
 
         </div>
-        <div className=" grow h-full bg-black/30  p-10 rounded-2xl">
+        <div className=" grow md:h-full bg-black/30  p-10 rounded-2xl">
 
           <div className="w-full h-full relative grid place-items-center ">
             <span className={`${preview ? 'block' : 'hidden'}  absolute -top-3 -right-3  rounded-full bg-black/50 p-1`} onClick={() => {
