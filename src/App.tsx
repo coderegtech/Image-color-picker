@@ -27,19 +27,25 @@ export default function Home() {
   }
 
   // enable Eye Dropper
-  const pickColor = useCallback(() => {
-    // Using async/await (can be used as a promise as-well)
-    const openPicker = async () => {
-      try {
-        const color = await open()
-        setHexColor(color.sRGBHex)
-      } catch (e) {
-        console.log(e)
+  // const pickColor = useCallback(() => {
+  //   // Using async/await (can be used as a promise as-well)
+  //   const openPicker = async () => {
+  //     try {
+  //       const color = await open()
+  //       setHexColor(color.sRGBHex)
+  //     } catch (e) {
+  //       console.log(e)
 
-      }
-    }
-    if (isSupported()) openPicker()
-  }, [open])
+  //     }
+  //   }
+  //   if (isSupported()) openPicker()
+  // }, [open])
+
+  const pickColor = async () => {
+    let eyeDropper = new EyeDropper()
+    const {sRGBHex} = eyeDropper.open()
+    setHexColor(sRGBHex)
+  }
 
   // copy hexcode to clipboard
   const copyHexColor = () => {
