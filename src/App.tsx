@@ -41,10 +41,14 @@ export default function Home() {
   //   if (isSupported()) openPicker()
   // }, [open])
 
-  const pickColor = async () => {
-    let eyeDropper = new EyeDropper()
-    const {sRGBHex} = eyeDropper.open()
-    setHexColor(sRGBHex)
+    const pickColor = async () => {
+        try {
+          let eyeDropper = new EyeDropper()
+          const { sRGBHex } = await eyeDropper.open()
+          setHexColor(sRGBHex)
+        } catch (error) {
+          console.error(error)
+        }
   }
 
   // copy hexcode to clipboard
