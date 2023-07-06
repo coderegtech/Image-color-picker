@@ -7,7 +7,7 @@ export default function Home() {
   const [preview, setPreview] = useState<any>("")
   const [hexColor, setHexColor] = useState<string>("#bf1d85")
   const imgRef = useRef<any>(null)
-  const { open, isSupported } = useEyeDropper()
+  const { open } = useEyeDropper()
 
   const previewImg = () => {
     setPreview(imgUrl)
@@ -27,29 +27,19 @@ export default function Home() {
   }
 
   // enable Eye Dropper
-  // const pickColor = useCallback(() => {
-  //   // Using async/await (can be used as a promise as-well)
-  //   const openPicker = async () => {
-  //     try {
-  //       const color = await open()
-  //       setHexColor(color.sRGBHex)
-  //     } catch (e) {
-  //       console.log(e)
+  const pickColor = useCallback(() => {
+    // Using async/await (can be used as a promise as-well)
+    const openPicker = async () => {
+      try {
+        const color = await open()
+        setHexColor(color.sRGBHex)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    openPicker()
+  }, [open])
 
-  //     }
-  //   }
-  //   if (isSupported()) openPicker()
-  // }, [open])
-
-    const pickColor = async () => {
-        try {
-          let eyeDropper = new EyeDropper()
-          const { sRGBHex } = await eyeDropper.open()
-          setHexColor(sRGBHex)
-        } catch (error) {
-          console.error(error)
-        }
-  }
 
   // copy hexcode to clipboard
   const copyHexColor = () => {
